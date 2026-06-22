@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2 Track DAW</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+    <div class="menu-bar">
+
+        <div>File</div>
+        <div>Edit</div>
+        <div>View</div>
+        <div>Track</div>
+        <div>Clip</div>
+        <div>Event</div>
+        <div>AudioSuite</div>
+        <div>Options</div>
+        <div>Setup</div>
+        <div>Window</div>
+        <div>Help</div>
+
+    </div>
+
+
+    <div class="status-bar">
+
+        <div class="counter-panel">
+
+            <div class="counter-label">
+
+                MAIN COUNTER
+
+            </div>
+
+            <div id="mainCounter">
+
+                01:00:00:00
+
+            </div>
+
+        </div>
+
+
+        <div class="transport-panel">
+
+            <button id="rewBtn">◀◀</button>
+
+            <button id="play">▶</button>
+
+            <button id="stop">■</button>
+
+            <button id="pause">❚❚</button>
+
+            <button id="record">●</button>
+
+            <button id="ffBtn">▶▶</button>
+
+        </div>
+
+
+        <div class="master-top">
+
+            <div class="masterBarL">
+                <div class="masterFillL"></div>
+            </div>
+
+            <div class="masterBarR">
+                <div class="masterFillR"></div>
+            </div>
+
+        </div>
+
+
+        <div class="system-panel">
+
+            <div class="meter-block">
+
+                <span>CPU</span>
+
+                <div class="small-meter">
+
+                    <div class="cpuFill"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="meter-block">
+
+                <span>DISK</span>
+
+                <div class="small-meter">
+
+                    <div class="diskFill"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- TRANSPORT -->
+
+<div class="transport-bar">
+
+    <div class="transport-group">
+
+        <button class="transport-btn">|◀</button>
+
+        <button class="transport-btn">◀◀</button>
+
+        <button class="transport-btn stop-btn">
+
+            ■
+
+        </button>
+
+        <button class="transport-btn play-btn">
+
+            ▶
+
+        </button>
+
+        <button class="transport-btn rec-btn">
+
+            ●
+
+        </button>
+
+        <button class="transport-btn">
+
+            ▶▶
+
+        </button>
+
+        <button class="transport-btn">
+
+            ▶|
+
+        </button>
+
+    </div>
+
+
+    <div class="counter-display">
+
+        01:00:00:00
+
+    </div>
+
+
+    <div class="mode-group">
+
+        <button class="mode-btn active-mode">
+
+            GRID
+
+        </button>
+
+        <button class="mode-btn">
+
+            SLIP
+
+        </button>
+
+        <button class="mode-btn">
+
+            SPOT
+
+        </button>
+
+        <button class="mode-btn">
+
+            SHUFFLE
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ZOOM -->
+
+<div class="zoom-bar">
+
+    Zoom
+
+    <input
+    type="range"
+    id="zoom"
+    min="1"
+    max="4"
+    value="1">
+
+</div>
+
+
+
+<div class="daw">
+
+<div class="main">
+
+
+<!-- TRACK PANEL -->
+
+<div class="track-panel">
+
+
+
+<!-- TRACK 1 -->
+
+<div class="track-control green">
+
+<select>
+
+<option>
+
+VOCAL 1
+
+</option>
+
+</select>
+
+
+<select>
+
+<option>
+
+Input 1
+
+</option>
+
+</select>
+
+
+<select>
+
+<option>
+
+Mix L/R
+
+</option>
+
+</select>
+
+
+<div class="buttons">
+
+<button>
+
+S
+
+</button>
+
+<button>
+
+M
+
+</button>
+
+<button class="read">
+
+READ
+
+</button>
+
+</div>
+
+<input type="range">
+
+</div>
+
+
+
+<!-- TRACK 2 -->
+
+<div class="track-control blue">
+
+<select>
+
+<option>
+
+GUITAR 1
+
+</option>
+
+</select>
+
+
+<select>
+
+<option>
+
+Input 2
+
+</option>
+
+</select>
+
+
+<select>
+
+<option>
+
+Mix L/R
+
+</option>
+
+</select>
+
+
+<div class="buttons">
+
+<button class="rec">
+
+R
+
+</button>
+
+<button>
+
+M
+
+</button>
+
+</div>
+
+<input type="range">
+
+</div>
+
+
+</div>
+
+
+<!-- ARRANGE -->
+
+<div class="arrange">
+
+
+<div class="ruler">
+
+<div class="measure">1|1</div>
+<div class="measure">2|1</div>
+<div class="measure">3|1</div>
+<div class="measure">4|1</div>
+<div class="measure">5|1</div>
+<div class="measure">6|1</div>
+<div class="measure">7|1</div>
+<div class="measure">8|1</div>
+
+</div>
+
+
+<div id="playhead"></div>
+
+
+<div id="loop-region"></div>
+
+<!-- TRACK 1 -->
+
+<div class="track-row">
+
+    <div
+    class="clip green-clip draggable"
+    style="left:50px;width:1400px">
+
+        <canvas id="wave1"></canvas>
+
+    </div>
+
+</div>
+
+
+
+<!-- TRACK 2 -->
+
+<div class="track-row">
+
+    <div
+    class="clip blue-clip draggable"
+    style="left:180px;width:1200px">
+
+        <canvas id="wave2"></canvas>
+
+    </div>
+
+</div>
+
+
+<div class="grid"></div>
+
+</div>
+
+
+<!-- MIXER -->
+
+<div class="mixer">
+
+
+
+<!-- CHANNEL 1 -->
+
+<div class="ssl-channel">
+
+
+<!-- INSERT -->
+
+<div class="module">
+
+<div class="module-header">
+
+INSERT
+
+</div>
+
+<button class="insert-btn">
+
+IN
+
+</button>
+
+</div>
+
+
+
+<!-- SENDS -->
+
+<div class="module">
+
+<div class="module-header">
+
+SENDS
+
+</div>
+
+<div class="send-row">
+
+<div class="mini-knob"></div>
+
+<span>
+
+A
+
+</span>
+
+</div>
+
+
+<div class="send-row">
+
+<div class="mini-knob"></div>
+
+<span>
+
+B
+
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- FILTER -->
+
+<div class="module">
+
+<div class="module-header">
+
+FILTER
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob blue">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+HPF
+
+</span>
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob pink">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+LPF
+
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- EQ -->
+
+<div class="module">
+
+<div class="module-header">
+
+EQ
+
+</div>
+
+
+<div class="eq-grid">
+
+
+<div class="knob-box">
+
+<div class="ssl-knob green">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+HF
+
+</span>
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob green">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+HMF
+
+</span>
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob blue">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+LMF
+
+</span>
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob blue">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+LF
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- DYNAMICS -->
+
+<div class="module">
+
+<div class="module-header">
+
+DYNAMICS
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob grey">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+COMP
+
+</span>
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob grey">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+GATE
+
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- PAN -->
+
+<div class="module">
+
+<div class="module-header">
+
+PAN
+
+</div>
+
+<div class="ssl-knob grey">
+
+<div class="indicator"></div>
+
+</div>
+
+</div>
+
+<!-- CHANNEL BUTTONS -->
+
+<div class="channel-buttons">
+
+<button class="solo-btn">
+
+S
+
+</button>
+
+<button class="mute-btn">
+
+M
+
+</button>
+
+<button class="rec-btn">
+
+REC
+
+</button>
+
+</div>
+
+
+
+<!-- VU -->
+
+<div class="vu-stereo">
+
+<div class="vuL">
+
+<div class="fillL"></div>
+
+</div>
+
+
+<div class="vuR">
+
+<div class="fillR"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- FADER -->
+
+<div class="fader-block">
+
+<div class="db-scale">
+
++10<br>
++5<br>
+0<br>
+-5<br>
+-10<br>
+-20<br>
+-40<br>
+∞
+
+</div>
+
+
+<input
+class="ssl-fader"
+type="range"
+min="0"
+max="100"
+value="75">
+
+</div>
+
+</div>
+
+
+
+
+<!-- CHANNEL 2 -->
+
+<div class="ssl-channel">
+
+
+<!-- INSERT -->
+
+<div class="module">
+
+<div class="module-header">
+
+INSERT
+
+</div>
+
+<button class="insert-btn">
+
+IN
+
+</button>
+
+</div>
+
+
+
+<!-- SENDS -->
+
+<div class="module">
+
+<div class="module-header">
+
+SENDS
+
+</div>
+
+<div class="send-row">
+
+<div class="mini-knob"></div>
+
+<span>
+
+A
+
+</span>
+
+</div>
+
+
+<div class="send-row">
+
+<div class="mini-knob"></div>
+
+<span>
+
+B
+
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- FILTER -->
+
+<div class="module">
+
+<div class="module-header">
+
+FILTER
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob blue">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+HPF
+
+</span>
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob pink">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+LPF
+
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- EQ -->
+
+<div class="module">
+
+<div class="module-header">
+
+EQ
+
+</div>
+
+
+<div class="eq-grid">
+
+<div class="knob-box">
+
+<div class="ssl-knob green">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+HF
+
+</span>
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob green">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+HMF
+
+</span>
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob blue">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+LMF
+
+</span>
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob blue">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+LF
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- DYNAMICS -->
+
+<div class="module">
+
+<div class="module-header">
+
+DYNAMICS
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob grey">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+COMP
+
+</span>
+
+</div>
+
+
+<div class="knob-box">
+
+<div class="ssl-knob grey">
+
+<div class="indicator"></div>
+
+</div>
+
+<span>
+
+GATE
+
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- PAN -->
+
+<div class="module">
+
+<div class="module-header">
+
+PAN
+
+</div>
+
+<div class="ssl-knob grey">
+
+<div class="indicator"></div>
+
+</div>
+
+</div>
+
+<!-- CHANNEL BUTTONS -->
+
+<div class="channel-buttons">
+
+<button class="solo-btn">
+
+S
+
+</button>
+
+<button class="mute-btn">
+
+M
+
+</button>
+
+<button class="rec-btn">
+
+REC
+
+</button>
+
+</div>
+
+
+
+<!-- VU -->
+
+<div class="vu-stereo">
+
+<div class="vuL">
+
+<div class="fillL"></div>
+
+</div>
+
+
+<div class="vuR">
+
+<div class="fillR"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- FADER -->
+
+<div class="fader-block">
+
+<div class="db-scale">
+
++10<br>
++5<br>
+0<br>
+-5<br>
+-10<br>
+-20<br>
+-40<br>
+∞
+
+</div>
+
+
+<input
+class="ssl-fader"
+type="range"
+min="0"
+max="100"
+value="75">
+
+</div>
+
+</div>
+
+
+<!-- END CHANNEL 2 -->
+
+
+</div>
+
+
+<!-- END MIXER -->
+
+
+</div>
+
+
+<!-- END MAIN -->
+
+
+<!-- BOTTOM TRANSPORT -->
+
+<div class="bottom-bar">
+
+<div class="session-info">
+
+48kHz / 24bit
+
+</div>
+
+
+<div class="timeline-mode">
+
+GRID
+
+</div>
+
+
+<div class="tempo-display">
+
+120 BPM
+
+</div>
+
+
+<div class="master-meter">
+
+<div class="masterL">
+
+<div class="masterFillLeft"></div>
+
+</div>
+
+
+<div class="masterR">
+
+<div class="masterFillRight"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
